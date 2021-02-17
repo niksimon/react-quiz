@@ -1,1 +1,97 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(90deg, #1344e2, #4968cf);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.root {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.quiz {
+  background-color: #161a2b;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+  padding: 35px 30px;
+  min-height: 200px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.quiz h1 {
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+.quiz .score {
+  padding: 0;
+}
+
+.quiz p {
+  padding-bottom: 5px;
+}
+
+.start,
+.answer,
+.next {
+  background-color: #117aff;
+  border: none;
+  color: #111;
+  width: 250px;
+  height: 40px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px #000;
+  transition: 250ms background-color;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.correct {
+  background-color: #0ec445;
+}
+
+.incorrect {
+  background-color: #db1010;
+}
+
+.next {
+  background-color: #cdda24;
+  font-weight: 700;
+}
+
+.answer:hover,
+.start:hover {
+  background-color: #149fff;
+}
+
+.next:hover {
+  background-color: #ecfc17;
+}
+
+.correct:hover {
+  background-color: #12da4e;
+}
+
+.incorrect:hover {
+  background-color: #ff1919;
+}

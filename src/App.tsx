@@ -6,7 +6,7 @@ import QuestionCard from "./components/QuestionCard";
 export type AnswerObject = {
   question: string;
   answer: string;
-  correct: boolean;
+  isCorrect: boolean;
   correctAnswer: string;
 };
 
@@ -19,8 +19,6 @@ const App = () => {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-
-  console.log(questions);
 
   const startQuiz = async () => {
     setLoading(true);
@@ -38,14 +36,14 @@ const App = () => {
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!gameOver) {
       const answer = e.currentTarget.value;
-      const correct = questions[number].correct_answer === answer;
-      if (correct) {
+      const isCorrect = answer === questions[number].correct_answer;
+      if (isCorrect) {
         setScore((prev) => prev + 1);
       }
       const answerObject = {
         question: questions[number].question,
         answer,
-        correct,
+        isCorrect,
         correctAnswer: questions[number].correct_answer,
       };
       setUserAnswers((prev) => [...prev, answerObject]);
@@ -66,7 +64,7 @@ const App = () => {
       <h1>Quiz</h1>
       {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
         <button className="start" onClick={startQuiz}>
-          Start
+          {number + 1 === TOTAL_QUESTIONS ? "Restart" : "Start"}
         </button>
       ) : null}
       {!gameOver ? <p className="score">Score: {score}</p> : null}
